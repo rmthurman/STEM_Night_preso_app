@@ -61,13 +61,7 @@ class PresentationPlugin:
 
                 print(f"Original slide content: {slide_content}")
 
-                lines = slide_content.split('\n')
-                #create a regex that matches and excludes everything before "the dalle_prefix", and anything that comes after it until the ) is encountered, do not include the ) in the match:
-                #EXAMPLE: ![abc123](https://dalleproduse.blob.core.windows.net/private/images/1b7e4f6d-7801-4bd8-b63f-b7df14da7e9c/generated_00.png?se=2025-04-01T18%3A28%3A24Z&sig=sc60RW5VcZKsbW2lnvIPXcrZUbzRBIYN4Io3fuLkveA%3D&ske=2025-04-05T21%3A58%3A55Z&skoid=09ba021e-c417-441c-b203-c81e5dcd7b7f&sks=b&skt=2025-03-29T21%3A58%3A55Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02)
-                #match = https://dalleproduse.blob.core.windows.net/private/images/1b7e4f6d-7801-4bd8-b63f-b7df14da7e9c/generated_00.png?se=2025-04-01T18%3A28%3A24Z&sig=sc60RW5VcZKsbW2lnvIPXcrZUbzRBIYN4Io3fuLkveA%3D&ske=2025-04-05T21%3A58%3A55Z&skoid=09ba021e-c417-441c-b203-c81e5dcd7b7f&sks=b&skt=2025-03-29T21%3A58%3A55Z&sktid=33e01921-4d64-4f8c-a055-5bdaffd5e33d&skv=2020-10-02&sp=r&spr=https&sr=b&sv=2020-10-02
-                #dalle_prefix = 'https:\/\/dalleproduse.blob.core.windows.net\/private\/images\/'
-                #The old one - dalle_regex = re.compile(rf'\({dalle_prefix}.*?\)')        
-                
+                lines = slide_content.split('\n')                
                 dalle_regex = r'!\[.*?\]\((.*?)\)'
         
                 for line in lines:
